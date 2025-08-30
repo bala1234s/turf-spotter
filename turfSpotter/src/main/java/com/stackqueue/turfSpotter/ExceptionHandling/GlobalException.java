@@ -1,9 +1,6 @@
 package com.stackqueue.turfSpotter.ExceptionHandling;
 
-import com.stackqueue.turfSpotter.POJO.CustomerException;
-import com.stackqueue.turfSpotter.POJO.ServerResponse;
-import com.stackqueue.turfSpotter.POJO.TurfOwnerException;
-import com.stackqueue.turfSpotter.POJO.UserException;
+import com.stackqueue.turfSpotter.POJO.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -27,6 +24,12 @@ public class GlobalException {
     public ResponseEntity<?> turfOwnerException(TurfOwnerException turfOwnerException){
         ServerResponse serverResponse = new ServerResponse(turfOwnerException.getHttpCode(),turfOwnerException.getResponseMessage(),turfOwnerException.getDateTime());
         return new ResponseEntity<>(serverResponse, turfOwnerException.getHttpCode());
+    }
+
+    @ExceptionHandler(TurfDetailsException.class)
+    public ResponseEntity<?> turfDetailsException(TurfDetailsException turfDetailsException){
+        ServerResponse serverResponse = new ServerResponse(turfDetailsException.getHttpCode(),turfDetailsException.getResponseMessage(),turfDetailsException.getDateTime());
+        return new ResponseEntity<>(serverResponse, turfDetailsException.getHttpCode());
     }
 
 }

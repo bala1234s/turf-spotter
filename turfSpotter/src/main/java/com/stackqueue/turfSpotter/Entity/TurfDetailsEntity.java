@@ -30,7 +30,7 @@ public class TurfDetailsEntity {
 
 
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private TurfOwnerEntity turfOwnerEntity;
 
 }
