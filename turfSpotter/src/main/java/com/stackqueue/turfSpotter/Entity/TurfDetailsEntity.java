@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Builder
@@ -27,11 +28,25 @@ public class TurfDetailsEntity {
     private String bookingPolicy;
     private LocalDateTime turfCreatedAt;
     private LocalDateTime turfUpdatedAt;
+    private String turfSurface;
+    private String turfSize;
+    private boolean parkingAvailable;
+    private boolean waterAvailable;
+    private boolean changingRoomsAvailable;
+    private boolean washRoomAvailable;
 
 
 
     @ManyToOne(cascade = CascadeType.ALL)
     private TurfOwnerEntity turfOwnerEntity;
+
+    @OneToMany(mappedBy = "turfDetailsEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<TurfTypeEntity> turfTypeEntities;
+
+    @OneToMany(mappedBy = "turfDetailsEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<TurfImageEntity> turfImageEntities;
+
+
 
 }
 

@@ -25,6 +25,7 @@ public class UserEntity {
     private int userID;
     private String username;
     private String userPassword;
+    @Enumerated(EnumType.STRING)
     private UserRole userRole;
     private LocalDate accountCreatedAt;
 

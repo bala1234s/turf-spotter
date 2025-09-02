@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TurfDetailsRepository extends JpaRepository<TurfDetailsEntity, Integer> {
+    public boolean existsByTurfId(int turfId);
 }

@@ -32,4 +32,12 @@ public class GlobalException {
         return new ResponseEntity<>(serverResponse, turfDetailsException.getHttpCode());
     }
 
+    @ExceptionHandler(TurfTypeException.class)
+    public ResponseEntity<?> turfTypeException(TurfTypeException turfTypeException){
+        ServerResponse serverResponse = new ServerResponse(turfTypeException.getHttpCode(),turfTypeException.getResponseMessage(),turfTypeException.getDateTime());
+        return new ResponseEntity<>(serverResponse, turfTypeException.getHttpCode());
+    }
+
+
+
 }

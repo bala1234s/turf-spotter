@@ -44,7 +44,7 @@ public class TurfOwnerService {
                     .userEntity(user)
                     .build();
 
-            turfOwnerRepository.save(turfOwnerEntity);
+                turfOwnerRepository.save(turfOwnerEntity);
 
             return new ResponseEntity<>(new ServerResponse(HttpStatus.CREATED, "Turf Owner is Created Successfully!!! ", LocalDate.now()), HttpStatus.CREATED);
 
